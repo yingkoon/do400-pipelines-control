@@ -1,7 +1,8 @@
-node('nodejs') {
-    stage('Checkout') {
-       git branch: 'main',
-	   url: 'https://github.com/yingkoon/do400-pipelines-control'
+pipeline {
+    agent {
+        node {
+            label 'nodejs'
+        }
     }	
     stage('Backend Tests') {
        sh 'node ./backend/test.js'
